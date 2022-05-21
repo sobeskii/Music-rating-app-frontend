@@ -79,7 +79,7 @@
                 </div>
               </template>
               <template v-else>
-                <a href="http://127.0.0.1:8000/api/auth" class="text-sm text-white hover:text-gray-200">
+                <a :href="authLink" class="text-sm text-white hover:text-gray-200">
                   Log in
                 </a>
               </template>
@@ -139,7 +139,7 @@
               </div>
             </template>
             <template v-else>
-              <a href="http://127.0.0.1:8000/api/auth" class="text-sm text-white ">
+              <a :href="authLink"  class="text-sm text-white ">
                 Log in
               </a>
             </template>
@@ -222,6 +222,9 @@ export default {
     }
   },
   computed: {
+      authLink(){
+        return process.env.VUE_APP_LOGIN_ENDPOINT;
+      },
     ...mapState({
       user: state => state.user,
     }),
