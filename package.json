@@ -1,0 +1,53 @@
+{
+  "name": "saityno_frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "postinstall": "npm run build",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@chenfengyuan/vue-countdown": "^2.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.1",
+    "@trevoreyre/autocomplete-vue": "^2.2.0",
+    "@vueform/slider": "^2.0.9",
+    "axios": "^0.24.0",
+    "chart.js": "^3.7.1",
+    "core-js": "^3.6.5",
+    "express": "^4.18.1",
+    "jquery": "^3.6.0",
+    "jquery-ui": "^1.13.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "nprogress": "^0.2.0",
+    "serve-static": "^1.15.0",
+    "vue": "^3.2.33",
+    "vue-chartjs": "^4.0.5",
+    "vue-content-loader": "^2.0.1",
+    "vue-content-placeholders": "^0.2.1",
+    "vue-date-pick": "^1.4.1",
+    "vue-nprogress": "^0.2.0",
+    "vue-resource": "^1.5.3",
+    "vue-router": "^4.0.0-0",
+    "vue3-date-time-picker": "^2.4.0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+  }
+}
