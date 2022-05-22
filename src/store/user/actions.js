@@ -3,7 +3,7 @@ import {deleteCookie} from "@/helpers";
 
 const retrieveUserData = function (context) {
     return new Promise((resolve, reject) => {
-        axios.get('/user/', {
+        axios.get('/user', {
                 headers: {
                     Authorization: 'Bearer ' + context.state.token
                 }
