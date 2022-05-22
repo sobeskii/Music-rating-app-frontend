@@ -71,7 +71,7 @@ const getUserProfile = function (context,id) {
 const getUserRecommendations = function (context){
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
     return new Promise((resolve, reject) => {
-        axios.get('/discover_artists/')
+        axios.get('/discover_artists')
             .then(response => {
                 console.log(response.data.artists)
                 context.commit('retrieveArtists',response.data.artists)
