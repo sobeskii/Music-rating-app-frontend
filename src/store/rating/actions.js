@@ -6,7 +6,7 @@ const putRating = function (context,data){
     context.commit('resetErrorState')
     context.commit('resetSuccessState')
     return new Promise((resolve, reject) => {
-        axios.put('/release/rating/put/', {
+        axios.put('/release/rating/put', {
             rating: data.rating,
             review: data.review,
             release_id: data.release_id,

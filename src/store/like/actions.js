@@ -4,7 +4,7 @@ import router from "@/router";
 const addLike = function (context, data) {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.rootState.user.token;
     return new Promise((resolve, reject) => {
-        axios.post('/release/rating/' + data.rating_id + '/toggle/', {
+        axios.post('/release/rating/' + data.rating_id + '/toggle', {
             is_like: data.is_like
         })
             .then(response => {
