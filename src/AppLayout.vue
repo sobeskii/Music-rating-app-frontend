@@ -223,7 +223,7 @@ export default {
   },
   computed: {
       authLink(){
-        return process.env.VUE_APP_LOGIN_ENDPOINT;
+        return process.env.VUE_APP_LOGIN;
       },
     ...mapState({
       user: state => state.user,

@@ -8,7 +8,7 @@ import like from "./like";
 import admin from "./admin";
 import NProgress from 'nprogress';
 
-axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+axios.defaults.baseURL = process.env.VUE_APP_API
 
 axios.interceptors.request.use(function (config) {
     NProgress.start();
