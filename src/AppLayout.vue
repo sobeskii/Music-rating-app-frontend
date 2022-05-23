@@ -181,32 +181,27 @@ export default {
     if (this.user.token != null && localStorage.getItem('user_data') == null) {
       this.retrieveUserData();
     }
-  },
-  updated() {
     if (this.user.isBanned == 1) {
-      this.showBannedMessage();
-      this.destroyToken();
       this.timeout = setTimeout(()=> {
         this.user.isBanned = false
         this.clearBannedMessage();
-      }, 2000);
-    }
-    if (this.user.isBanned == 1) {
-      this.showBannedMessage();
-      this.destroyToken();
-      this.timeout = setTimeout(()=> {
-        this.user.isBanned = false
-        this.clearBannedMessage();
+        this.destroyToken();
       }, 2000);
     }
     if(this.user.invalidCredentials == 1){
-      this.showInvalidCredentialMessage()
       this.timeout = setTimeout(()=> {
         this.user.invalidCredentials = false
         this.clearInvalidCredentialMessage();
       },2000);
     }
-
+  },
+  updated() {
+    if (this.user.isBanned == 1) {
+      this.showBannedMessage();
+    }
+    if(this.user.invalidCredentials == 1) {
+      this.showInvalidCredentialMessage()
+    }
   },
   components: {
     JetApplicationMark,
