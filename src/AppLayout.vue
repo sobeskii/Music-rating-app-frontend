@@ -197,10 +197,14 @@ export default {
   },
   updated() {
     if (this.user.isBanned == 1) {
-      this.showBannedMessage();
+      if(this.user.errors == undefined) {
+        this.showBannedMessage();
+      }
     }
     if(this.user.invalidCredentials == 1) {
-      this.showInvalidCredentialMessage()
+      if(this.user.errors == undefined) {
+        this.showInvalidCredentialMessage()
+      }
     }
   },
   components: {
