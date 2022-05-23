@@ -34,7 +34,7 @@
             </p>
         </td>
         <td class="px-4 py-4 border-b border-gray-200 bg-white sm:text-xl text-base">
-            <a rel="noreferrer" href="s" target="_blank" class="text-green-500">
+            <a rel="noreferrer" :href="'https://open.spotify.com/album/'+data.release.spotify_id" target="_blank" class="text-green-500">
                 <i class="fab fa-spotify" aria-hidden="true"></i>
             </a>
         </td>

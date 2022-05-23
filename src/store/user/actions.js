@@ -86,8 +86,16 @@ const getUserRecommendations = function (context){
 const showBannedMessage = function (context){
     context.commit('retrieveErrors',{error: 'User is banned!'});
 }
+const showInvalidCredentialMessage = function (context){
+    context.commit('retrieveErrors',{error: 'User is not in the whitelist!'});
+}
+
 const clearBannedMessage = function (context){
     deleteCookie('is_banned');
+}
+
+const clearInvalidCredentialMessage = function (context){
+    deleteCookie('invalid_credentials');
 }
 
 const resetErrors = function (context) {
@@ -105,5 +113,7 @@ export default {
     showBannedMessage,
     clearBannedMessage,
     getUserProfile,
-    getUserRecommendations
+    getUserRecommendations,
+    showInvalidCredentialMessage,
+    clearInvalidCredentialMessage
 }

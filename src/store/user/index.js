@@ -8,6 +8,7 @@ export default {
         token: getCookie('AUTH-TOKEN') ,
         userData: JSON.parse(localStorage.getItem('user_data')) || null,
         isBanned: Boolean(getCookie('is_banned')),
+        invalidCredentials: Boolean(getCookie('invalid_credentials')),
         profile: null,
         collapsed: false
     },

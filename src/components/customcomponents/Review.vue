@@ -142,7 +142,6 @@
 import Like from './Like.vue'
 import moment from 'moment';
 import {mapGetters} from "vuex";
-import VueCountdown from '@chenfengyuan/vue-countdown';
 
 export default {
   props: {
@@ -164,7 +163,6 @@ export default {
   },
   components: {
     Like,
-    VueCountdown
   },
   computed: {
     ...mapGetters(['loggedIn', 'getUserData']),

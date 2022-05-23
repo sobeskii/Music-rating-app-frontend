@@ -139,7 +139,7 @@
               </div>
             </template>
             <template v-else>
-              <a :href="authLink"  class="text-sm text-white ">
+              <a :href="authLink" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out ">
                 Log in
               </a>
             </template>
@@ -190,8 +190,23 @@ export default {
         this.user.isBanned = false
         this.clearBannedMessage();
       }, 2000);
-
     }
+    if (this.user.isBanned == 1) {
+      this.showBannedMessage();
+      this.destroyToken();
+      this.timeout = setTimeout(()=> {
+        this.user.isBanned = false
+        this.clearBannedMessage();
+      }, 2000);
+    }
+    if(this.user.invalidCredentials == 1){
+      this.showInvalidCredentialMessage()
+      this.timeout = setTimeout(()=> {
+        this.user.invalidCredentials = false
+        this.clearInvalidCredentialMessage();
+      },2000);
+    }
+
   },
   components: {
     JetApplicationMark,
@@ -231,7 +246,7 @@ export default {
     ...mapGetters(['getUserData', 'loggedIn']),
   },
   methods: {
-    ...mapActions(['destroyToken', 'retrieveUserData', 'showBannedMessage','clearBannedMessage']),
+    ...mapActions(['destroyToken', 'retrieveUserData', 'showBannedMessage','clearBannedMessage','showInvalidCredentialMessage','clearInvalidCredentialMessage']),
     getImages(img) {
       return `/${img}`;
     }

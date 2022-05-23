@@ -4,7 +4,7 @@
       <div class="flex-none w-1/2 overflow-hidden">
         <div v-if="artist != null" class="bottom-2 sm:absolute">
           <p class="whitespace-no-wrap text-xl text-sm:2xl md:text-4xl  text-white">
-            <a rel="noreferrer" href="a" target="_blank" class="text-green-500">
+            <a rel="noreferrer" :href="'https://open.spotify.com/artist/'+artist.spotify_id" target="_blank" class="text-green-500">
               <i class="fab fa-spotify" aria-hidden="true"></i>
             </a>
             {{ artist.name }}

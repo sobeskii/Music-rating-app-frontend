@@ -1,6 +1,7 @@
 <template>
-  <div class="flex w-full min-w-min md:w-1/4 " v-if="this.data != null">
-    <div class="flex w-full flex" v-if="(noIndex) ? this.data.images != null : this.data.artist != null">
+  <div class="flex w-full min-w-min md:w-1/4 hover:opacity-50" v-if="this.data != null">
+    <router-link v-if="this.id !=null" :to="{ name: 'artist', params: { id: this.id }}">
+      <div class="flex w-full flex" v-if="(noIndex) ? this.data.images != null : this.data.artist != null">
       <div class="frame xl:h-48 xl:w-48 lg:h-36 lg:w-36 md:h-32 md:w-32 sm:h-36 sm:w-36 w-full h-48"><img class="w-full object-cover object-center h-full"
                                         :src="(!noIndex) ? data.artist.artist_image : data.images[0].url"
                                         alt="Artist image">
@@ -9,9 +10,8 @@
             <div class="flex-none w-1/2 overflow-hidden">
               <div class="bottom-2 sm:absolute md:w-1/2 sm:w-3/4 w-1/2">
                 <p class="whitespace-no-wrap text-base sm:text-xs text-white">
-                  <router-link :to="{ name: 'artist', params: { id: this.id }}">
+
                     {{ shortenArtistName }}
-                  </router-link>
                 </p>
               </div>
             </div>
@@ -28,6 +28,7 @@
         </div>
       </div>
     </div>
+    </router-link>
   </div>
 </template>
 
@@ -53,7 +54,7 @@ export default {
   },
   computed: {
     id(){
-      return  (!this.noIndex) ? this.data.artist.spotify_id : this.data.id;
+        return (!this.noIndex) ? this.data?.artist?.spotify_id ?? null : this.data.id ?? null;
     },
     tableNumber() {
       return (this.index + 1)

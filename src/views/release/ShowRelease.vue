@@ -9,7 +9,7 @@
       <div class="flex-none w-1/2 overflow-hidden">
         <div v-if="release != null" class="bottom-2 sm:absolute sm:w-2/6">
           <p class="whitespace-no-wrap text-white md:text-xl text-sm">
-            <a rel="noreferrer" href="sss" target="_blank" class="text-green-500">
+            <a rel="noreferrer" :href="'https://open.spotify.com/album/'+release.spotify_id" target="_blank" class="text-green-500">
               <i class="fab fa-spotify" aria-hidden="true"></i>
             </a>
             {{ release.name }}
