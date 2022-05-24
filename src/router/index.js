@@ -115,7 +115,7 @@ const routes = [
     },
   },
   {
-    path: '/404', name: 'NotFound', component: NotFound
+    path: '/404', name: 'NotFound', component: NotFound, meta: { title: "Not found"}
   },
 
 

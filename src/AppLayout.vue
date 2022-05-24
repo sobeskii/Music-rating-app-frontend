@@ -181,22 +181,9 @@ export default {
     if (this.user.token != null && localStorage.getItem('user_data') == null) {
       this.retrieveUserData();
     }
-    if (this.user.isBanned == 1) {
-      this.timeout = setTimeout(()=> {
-        this.user.isBanned = false
-        this.clearBannedMessage();
-        this.destroyToken();
-      }, 2000);
-    }
-    if(this.user.invalidCredentials == 1){
-      this.timeout = setTimeout(()=> {
-        this.user.invalidCredentials = false
-        this.clearInvalidCredentialMessage();
-      },2000);
-    }
   },
   updated() {
-    if (this.user.isBanned == 1) {
+    /*if (this.user.isBanned == 1) {
       if(this.user.errors == undefined) {
         this.showBannedMessage();
       }
@@ -205,7 +192,7 @@ export default {
       if(this.user.errors == undefined) {
         this.showInvalidCredentialMessage()
       }
-    }
+    }*/
   },
   components: {
     JetApplicationMark,
@@ -241,6 +228,8 @@ export default {
       },
     ...mapState({
       user: state => state.user,
+      isBanned: state => state.user.isBanned,
+      invalidCredentials: state => state.user.invalidCredentials,
     }),
     ...mapGetters(['getUserData', 'loggedIn']),
   },

@@ -1,5 +1,6 @@
 import axios from "axios";
 import {deleteCookie} from "@/helpers";
+import router from "@/router";
 
 const retrieveUserData = function (context) {
     return new Promise((resolve, reject) => {
@@ -63,7 +64,9 @@ const getUserProfile = function (context,id) {
                     resolve(response)
                 })
                 .catch(error => {
-                    reject(error)
+                    if(error.response.status == 404){
+                        router.push("/404");
+                    }
                 })
         })
 }
