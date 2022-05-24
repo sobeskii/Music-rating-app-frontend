@@ -16,12 +16,12 @@ const retrieveArtist = function (context, id) {
             context.commit('retrieveArtist', response.data.artist);
             context.commit('retrieveReleases', response.data.artist_releases);
             context.commit('retrieveRelease', null);
-            context.commit('updateGlobalRating',null);
-            context.commit('updateUserRating',null);
+            context.commit('updateGlobalRating', null);
+            context.commit('updateUserRating', null);
 
         })
         .catch(error => {
-            if(error.response.status == 404){
+            if (error.response?.status == 404) {
                 router.push("/404");
             }
             console.log(error)

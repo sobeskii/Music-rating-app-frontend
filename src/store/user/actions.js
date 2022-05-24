@@ -19,7 +19,7 @@ const retrieveUserData = function (context) {
                 spotify_refresh_token: response.data.spotify_refresh_token,
                 spotify_id: response.data.spotify_id
             }
-            localStorage.setItem('user_data',JSON.stringify(userData));
+            localStorage.setItem('user_data', JSON.stringify(userData));
             context.commit('retrieveUserData', userData);
             resolve(response);
         })
@@ -29,7 +29,7 @@ const retrieveUserData = function (context) {
             })
     })
 }
-const destroyToken = function(context)  {
+const destroyToken = function (context) {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
     if (context.getters.loggedIn) {
         return new Promise((resolve, reject) => {
@@ -53,31 +53,31 @@ const destroyToken = function(context)  {
         })
     }
 }
-const getUserProfile = function (context,id) {
+const getUserProfile = function (context, id) {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
-        return new Promise((resolve, reject) => {
-            axios.get('/user/'+id)
-                .then(response => {
-                    context.commit('retrieveUserProfile',response.data.user)
-                    context.commit('retrieveArtists',response.data.artists)
-                    context.commit('retrieveUserDataStats',response.data.stats)
-                    resolve(response)
-                })
-                .catch(error => {
-                    if(error.response.status == 404){
-                        router.push("/404");
-                    }
-                })
-        })
+    return new Promise((resolve, reject) => {
+        axios.get('/user/' + id)
+            .then(response => {
+                context.commit('retrieveUserProfile', response.data.user)
+                context.commit('retrieveArtists', response.data.artists)
+                context.commit('retrieveUserDataStats', response.data.stats)
+                resolve(response)
+            })
+            .catch(error => {
+                if (error.response?.status == 404) {
+                    router.push("/404");
+                }
+            })
+    })
 }
 
-const getUserRecommendations = function (context){
+const getUserRecommendations = function (context) {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
     return new Promise((resolve, reject) => {
         axios.get('/discover_artists')
             .then(response => {
                 console.log(response.data.artists)
-                context.commit('retrieveArtists',response.data.artists)
+                context.commit('retrieveArtists', response.data.artists)
                 resolve(response)
             })
             .catch(error => {
@@ -86,18 +86,18 @@ const getUserRecommendations = function (context){
     })
 }
 
-const showBannedMessage = function (context){
-    context.commit('retrieveErrors',{error: 'User is banned!'});
+const showBannedMessage = function (context) {
+    context.commit('retrieveErrors', {error: 'User is banned!'});
 }
-const showInvalidCredentialMessage = function (context){
-    context.commit('retrieveErrors',{error: 'User is not in the whitelist!'});
+const showInvalidCredentialMessage = function (context) {
+    context.commit('retrieveErrors', {error: 'User is not in the whitelist!'});
 }
 
-const clearBannedMessage = function (context){
+const clearBannedMessage = function (context) {
     deleteCookie('is_banned');
 }
 
-const clearInvalidCredentialMessage = function (context){
+const clearInvalidCredentialMessage = function (context) {
     deleteCookie('invalid_credentials');
 }
 

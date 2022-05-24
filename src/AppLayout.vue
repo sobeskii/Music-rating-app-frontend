@@ -27,11 +27,12 @@
                 <jet-nav-link :href="{name:'charts'}" :active="chartsActive">
                   Charts
                 </jet-nav-link>
-               <template v-if="this.getUserData">
-                 <jet-nav-link v-if="getUserData.role.role == 'admin'" :href="{name:'admin'}" :active="adminPanelActive">
-                   Admin
-                 </jet-nav-link>
-               </template>
+                <template v-if="this.getUserData">
+                  <jet-nav-link v-if="getUserData.role.role == 'admin'" :href="{name:'admin'}"
+                                :active="adminPanelActive">
+                    Admin
+                  </jet-nav-link>
+                </template>
               </div>
             </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -66,7 +67,7 @@
                           Profile
                         </jet-dropdown-link>
                       </template>
-                      <jet-dropdown-link  :href="{name:'discover'}">
+                      <jet-dropdown-link :href="{name:'discover'}">
                         Recommendations
                       </jet-dropdown-link>
                       <form @submit.prevent="this.destroyToken">
@@ -99,7 +100,8 @@
           </div>
         </div>
         <!-- Responsive Navigation Menu -->
-        <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" :active="searchActive" class="sm:hidden">
+        <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" :active="searchActive"
+             class="sm:hidden">
           <div class="pt-2 pb-3 space-y-1">
             <jet-responsive-nav-link :href="'search'">
               Search
@@ -139,7 +141,8 @@
               </div>
             </template>
             <template v-else>
-              <a :href="authLink" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out ">
+              <a :href="authLink"
+                 class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out ">
                 Log in
               </a>
             </template>
@@ -182,18 +185,6 @@ export default {
       this.retrieveUserData();
     }
   },
-  updated() {
-    /*if (this.user.isBanned == 1) {
-      if(this.user.errors == undefined) {
-        this.showBannedMessage();
-      }
-    }
-    if(this.user.invalidCredentials == 1) {
-      if(this.user.errors == undefined) {
-        this.showInvalidCredentialMessage()
-      }
-    }*/
-  },
   components: {
     JetApplicationMark,
     JetDropdown,
@@ -223,9 +214,9 @@ export default {
     }
   },
   computed: {
-      authLink(){
-        return process.env.VUE_APP_LOGIN;
-      },
+    authLink() {
+      return process.env.VUE_APP_LOGIN;
+    },
     ...mapState({
       user: state => state.user,
       isBanned: state => state.user.isBanned,
@@ -234,7 +225,7 @@ export default {
     ...mapGetters(['getUserData', 'loggedIn']),
   },
   methods: {
-    ...mapActions(['destroyToken', 'retrieveUserData', 'showBannedMessage','clearBannedMessage','showInvalidCredentialMessage','clearInvalidCredentialMessage']),
+    ...mapActions(['destroyToken', 'retrieveUserData', 'showBannedMessage', 'clearBannedMessage', 'showInvalidCredentialMessage', 'clearInvalidCredentialMessage']),
     getImages(img) {
       return `/${img}`;
     }

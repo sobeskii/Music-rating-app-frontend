@@ -53,7 +53,7 @@ const retrieveRelease = function (context, id) {
             context.commit('updateUserRating', user_rating);
         })
         .catch(error => {
-            if(error.response.status == 404){
+            if (error.response?.status == 404) {
                 router.push("/404");
             }
             console.log(error)

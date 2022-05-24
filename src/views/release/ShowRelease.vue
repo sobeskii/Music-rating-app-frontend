@@ -9,15 +9,16 @@
       <div class="flex-none w-1/2 overflow-hidden">
         <div v-if="release != null" class="bottom-2 sm:absolute sm:w-2/6">
           <p class="whitespace-no-wrap text-white md:text-xl text-sm">
-            <a rel="noreferrer" :href="'https://open.spotify.com/album/'+release.spotify_id" target="_blank" class="text-green-500">
+            <a rel="noreferrer" :href="'https://open.spotify.com/album/'+release.spotify_id" target="_blank"
+               class="text-green-500">
               <i class="fab fa-spotify" aria-hidden="true"></i>
             </a>
             {{ release.name }}
           </p>
           <p class="whitespace-no-wrap text-xs md:text-base  text-white">
-              <router-link :to="{ name: 'artist', params: { id: primary_artist.spotify_id }}">
-                {{ primary_artist.name }}&nbsp;
-              </router-link>
+            <router-link :to="{ name: 'artist', params: { id: primary_artist.spotify_id }}">
+              {{ primary_artist.name }}&nbsp;
+            </router-link>
           </p>
         </div>
       </div>
@@ -25,9 +26,9 @@
         <div v-if="rating_data != null" class="bottom-2 absolute">
           <h5 class="text-white md:text-base text-xs">Community rating: </h5>
           <p class="text-white md:text-base text-xs">
-            {{ ratingAverage }} <i class="fa fa-star" aria-hidden="true"></i> <small> from ratings {{
+            {{ ratingAverage }} <i class="fa fa-star" aria-hidden="true"></i> <small> from {{
               rating_data.count
-            }} </small>
+            }} ratings</small>
           </p>
         </div>
       </div>
