@@ -1,11 +1,11 @@
 const updateUserRating = function (state, data,isDelete = false) {
         state.user_rating = {
-            rating: (data.rating != null) ? data.rating : 0,
-            review:(data.review != null) ? data.review : null,
-            release_id: data.release_id,
-            artist_id: data.artist_id,
-            user_id: (data.user_id != null) ? data.user_id : null,
-            id: (data.id != null) ? data.id : null,
+            rating: (data?.rating != null) ? data?.rating : 0,
+            review:(data?.review != null) ? data?.review : null,
+            release_id: data?.release_id,
+            artist_id: data?.artist_id,
+            user_id: (data?.user_id != null) ? data.user_id : null,
+            id: (data?.id != null) ? data.id : null,
         }
 
 }
