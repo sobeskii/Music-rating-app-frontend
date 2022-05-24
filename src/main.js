@@ -7,7 +7,15 @@ import {fas} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 library.add(fas)
 import './styles/app.css';
+import axios from "axios";
 window.$ = window.jQuery = require('jquery');
+
+axios.interceptors.response.use(null,function (error) {
+    if(error.response.status === 401){
+        store.dispatch('destroyToken');
+        router.push('/');
+    }
+});
 
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title ? to.meta.title : "Some Default Title"
