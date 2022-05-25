@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
             next()
         }
     }else if (to.matched.some(record => record.meta.requiresAdmin)) {
-        if (store.getters.getUserData.role.role != 'admin') {
+        if (store?.getters?.getUserData?.role?.role != 'admin') {
             next({
                 name: 'home',
             })
